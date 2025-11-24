@@ -22,7 +22,7 @@ function verDetalle(id) {
     window.location = "detalle.html";
 }
 
-// Render Detalle
+
 if (document.getElementById("detalleContainer")) {
     const id = localStorage.getItem("ciudadSeleccionada");
     const ciudad = ciudades.find(c => c.id == id);
