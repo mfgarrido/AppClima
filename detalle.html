@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> A P P | Clima</title>
+    <title>ClimaApp | Detalle</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet"
@@ -26,17 +26,14 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 
-                <!-- Home -->
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Inicio</a>
+                    <a class="nav-link" href="index.html">Home</a>
                 </li>
 
-                <!-- Detalle (solo visible si existe ciudadSeleccionada) -->
                 <li class="nav-item" id="detalleLink" style="display: none;">
                     <a class="nav-link" href="detalle.html">Detalle</a>
                 </li>
 
-        
 
             </ul>
         </div>
@@ -46,14 +43,12 @@
 
 <main class="container py-4">
 
-    <h2 class="mb-4">Ciudades</h2>
-    <div class="row" id="cardContainer"></div>
+    <div id="detalleContainer"></div>
 
 </main>
 
-
 <footer class="bg-light text-center py-3">
-    <p class="m-0">Portafolio para "DESARROLLO DE APLICACIONES FRONT-END TRAINEE  <strong>2 0 2 5</strong> "</p>
+    <p class="m-0">APP  | Clima</p>
 </footer>
 
 <!-- Bootstrap JS -->
@@ -62,6 +57,15 @@
 
 <script src="assets/js/data.js"></script>
 <script src="assets/js/main.js"></script>
+
+<script>
+    // Mostrar el link a detalle solo si existe ciudad guardada
+    const detalleLink = document.getElementById("detalleLink");
+    if (localStorage.getItem("ciudadSeleccionada")) {
+        detalleLink.style.display = "block";
+    }
+</script>
+
 
 </body>
 </html>
