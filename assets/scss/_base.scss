@@ -1,0 +1,10 @@
+body {
+  background-color: $background-color;
+  font-family: $font-base;
+  color: $text-color;
+}
+
+
+.card-city {
+  @include hover-scale(1.02, 0.2s);
+}

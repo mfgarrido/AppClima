@@ -46,8 +46,15 @@
 
 <main class="container py-4">
 
-    <h2 class="mb-4">Ciudades</h2>
-    <div class="row" id="cardContainer"></div>
+    <div class="col-12 col-md-4 mb-4">
+  <div class="card-city card-city--clickable" onclick="verDetalle(${ciudad.id})">
+    <div class="card-city__body text-center">
+      <h5 class="card-city__title">${ciudad.nombre}</h5>
+      <p class="card-city__temp display-4">${ciudad.temp}°C</p>
+      <span class="card-city__state badge badge-info">${ciudad.estado}</span>
+    </div>
+  </div>
+</div>
 
 </main>
 
