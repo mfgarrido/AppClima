@@ -6,6 +6,7 @@ Aplicación de clima desarrollada  para el curso Front-End Trainee.
 - Bootstrap 
 - JavaScript
 - Git / GitHub
+- SCSS
 
 ## Funcionalidades
 - Listado de ciudades
