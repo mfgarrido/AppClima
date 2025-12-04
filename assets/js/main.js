@@ -1,6 +1,4 @@
-// =========================
-//  RENDER HOME (INDEX)
-// =========================
+// Renderizar las tarjetas de ciudades en el contenedor
 if (document.getElementById("cardContainer")) {
     const container = document.getElementById("cardContainer");
 
@@ -22,18 +20,13 @@ if (document.getElementById("cardContainer")) {
 }
 
 
-// =========================
-//  FUNCIÓN PARA GUARDAR Y REDIRIGIR
-// =========================
+// Función para ver detalle de una ciudad
 function verDetalle(id) {
     localStorage.setItem("ciudadSeleccionada", id);
     window.location = "detalle.html";
 }
 
 
-// =========================
-//  RENDER DETALLE
-// =========================
 if (document.getElementById("detalleContainer")) {
 
     const id = localStorage.getItem("ciudadSeleccionada");
@@ -78,9 +71,7 @@ if (document.getElementById("detalleContainer")) {
 }
 
 
-// =========================
-//  MOSTRAR LINK DETALLE EN NAV
-// =========================
+// Mostrar u ocultar enlace de detalle según si hay ciudad seleccionada
 const detalleLink = document.getElementById("detalleLink");
 if (detalleLink) {
     if (localStorage.getItem("ciudadSeleccionada")) {

@@ -1,17 +1,15 @@
-// Obtener ID desde localStorage
+
 const idSeleccionado = localStorage.getItem("ciudadSeleccionada");
 
-// Si no hay ID, volver al index
+// Si no hay ciudad seleccionada, redirigir al index
 if (!idSeleccionado) {
     window.location.href = "index.html";
 }
 
-// Buscar la ciudad correspondiente
 const ciudad = ciudades.find(c => c.id == idSeleccionado);
-
-// Contenedor del detalle
 const detalleContainer = document.getElementById("detalleContainer");
 
+// Si no se encuentra la ciudad, mostrar mensaje de error
 if (!ciudad) {
     detalleContainer.innerHTML = `
         <div class="alert alert-danger">Ciudad no encontrada.</div>
@@ -19,6 +17,7 @@ if (!ciudad) {
 } else {
     const dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
 
+    // Renderizar detalle de la ciudad
 detalleContainer.innerHTML = `
     <div class="card shadow p-4">
         <h2 class="text-center mb-3">${ciudad.nombre}</h2>
