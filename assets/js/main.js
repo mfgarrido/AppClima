@@ -1,11 +1,15 @@
-// Render Home (cards)
+// =========================
+//  RENDER HOME (INDEX)
+// =========================
 if (document.getElementById("cardContainer")) {
     const container = document.getElementById("cardContainer");
+
+    container.innerHTML = ""; // limpiar
 
     ciudades.forEach(ciudad => {
         container.innerHTML += `
             <div class="col-12 col-md-4 mb-4">
-                <div class="card shadow" onclick="verDetalle(${ciudad.id})" style="cursor:pointer;">
+                <div class="card shadow card-city--clickable" onclick="verDetalle(${ciudad.id})" style="cursor:pointer;">
                     <div class="card-body text-center">
                         <h5 class="card-title">${ciudad.nombre}</h5>
                         <p class="display-4">${ciudad.temp}°C</p>
@@ -17,16 +21,29 @@ if (document.getElementById("cardContainer")) {
     });
 }
 
+
+// =========================
+//  FUNCIÓN PARA GUARDAR Y REDIRIGIR
+// =========================
 function verDetalle(id) {
     localStorage.setItem("ciudadSeleccionada", id);
     window.location = "detalle.html";
 }
 
 
+// =========================
+//  RENDER DETALLE
+// =========================
 if (document.getElementById("detalleContainer")) {
-    const id = localStorage.getItem("ciudadSeleccionada");
-    const ciudad = ciudades.find(c => c.id == id);
 
+    const id = localStorage.getItem("ciudadSeleccionada");
+
+    // Si no hay ciudad, volver al home
+    if (!id) {
+        window.location = "index.html";
+    }
+
+    const ciudad = ciudades.find(c => c.id == id);
     const detalle = document.getElementById("detalleContainer");
 
     detalle.innerHTML = `
@@ -42,16 +59,33 @@ if (document.getElementById("detalleContainer")) {
 
         <h4>Pronóstico semanal</h4>
         <div class="row">
-            ${ciudad.semana.map((t, i) => `
+            ${ciudad.semana
+                .map(
+                    (t, i) => `
                 <div class="col-6 col-md-3 mb-3">
                     <div class="card text-center p-3">
-                        <strong>Día ${i+1}</strong>
+                        <strong>Día ${i + 1}</strong>
                         <p class="mt-2">${t}°C</p>
                     </div>
                 </div>
-            `).join("")}
+            `
+                )
+                .join("")}
         </div>
 
         <a href="index.html" class="btn btn-primary mt-3">Volver al inicio</a>
     `;
+}
+
+
+// =========================
+//  MOSTRAR LINK DETALLE EN NAV
+// =========================
+const detalleLink = document.getElementById("detalleLink");
+if (detalleLink) {
+    if (localStorage.getItem("ciudadSeleccionada")) {
+        detalleLink.style.display = "block";
+    } else {
+        detalleLink.style.display = "none";
+    }
 }

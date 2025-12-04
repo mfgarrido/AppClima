@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> A P P | Clima</title>
+    <title>A P P | Clima</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="assets/css/estilos.css">
+    <!-- CSS compilado -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
 </head>
 
 <body>
@@ -18,55 +20,39 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="index.html">A P P | Clima</a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                
-                <!-- Home -->
+
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">Inicio</a>
                 </li>
 
-                <!-- Detalle (solo visible si existe ciudadSeleccionada) -->
                 <li class="nav-item" id="detalleLink" style="display: none;">
                     <a class="nav-link" href="detalle.html">Detalle</a>
                 </li>
-
-        
 
             </ul>
         </div>
     </nav>
 </header>
 
-
 <main class="container py-4">
-
-    <div class="col-12 col-md-4 mb-4">
-  <div class="card-city card-city--clickable" onclick="verDetalle(${ciudad.id})">
-    <div class="card-city__body text-center">
-      <h5 class="card-city__title">${ciudad.nombre}</h5>
-      <p class="card-city__temp display-4">${ciudad.temp}°C</p>
-      <span class="card-city__state badge badge-info">${ciudad.estado}</span>
-    </div>
-  </div>
-</div>
-
+    <!-- AQUÍ SE RENDERIZAN LAS CIUDADES -->
+    <div id="cardContainer" class="row"></div>
 </main>
 
-
 <footer class="bg-light text-center py-3">
-    <p class="m-0">Portafolio para "DESARROLLO DE APLICACIONES FRONT-END TRAINEE  <strong>2 0 2 5</strong> "</p>
+    <p class="m-0">Portafolio para "DESARROLLO DE APLICACIONES FRONT-END TRAINEE <strong>2025</strong>"</p>
 </footer>
 
 <!-- Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
+<!-- Datos y lógica -->
 <script src="assets/js/data.js"></script>
 <script src="assets/js/main.js"></script>
 
